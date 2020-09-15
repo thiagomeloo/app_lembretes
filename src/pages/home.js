@@ -51,6 +51,14 @@ export default function HomeScreen({ navigation }) {
       dados.save(key,lista)
     }, [lista])
 
+    //atualiza lista qnd seleciona a tab
+    useEffect(() => {
+      navigation.addListener('tabPress', e => {
+        load()
+      })
+
+    }, [navigation])
+
     async function reset(){
       Alert.alert(
         "Atenção",
